@@ -1,0 +1,40 @@
+<style>
+
+</style>
+
+<div class="container">
+  <h3 class="card-title">{{title}}</h3>
+  <form class="form-group">
+
+      <div class="input-group">
+        <span class="input-group-text">Name and Surname</span>
+        <input type="text" aria-label="name" class="form-control" [(ngModel)]="student.name" name="name">
+        <input type="text" aria-label="surname" class="form-control" [(ngModel)]="student.surname" name="surname">
+      </div>
+
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">@</span>
+        <input type="email" class="form-control" placeholder="email" aria-label="email"
+          aria-describedby="addon-wrapping" [(ngModel)]="student.email" name="email">
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Mark</label>
+        <select class="form-select" id="inputGroupSelect01" [(ngModel)]="student.mark" name="mark">
+          <option selected disabled>Choose...</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <button class="btn btn-success" role="button" (click)='create()' *ngIf="!student.id else elseBlock"
+        style="float: right;">Register</button>
+
+      <ng-template #elseBlock>
+          <button class="btn btn-success" role="button" (click)='update()' style="float: right;">Edit</button>
+      </ng-template>
+    </form>
+</div>
